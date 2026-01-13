@@ -9,7 +9,7 @@ defmodule MorgyDb.Application do
   def start(_type, _args) do
     children = [
       MorgyDbWeb.Telemetry,
-      MorgyDb.Repo,
+      # MorgyDb.Repo, # Disabled - using custom ETS-based RDBMS instead
       {DNSCluster, query: Application.get_env(:morgy_db, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: MorgyDb.PubSub},
       # Start the Finch HTTP client for sending emails
