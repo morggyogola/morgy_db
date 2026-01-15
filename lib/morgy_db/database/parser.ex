@@ -240,7 +240,7 @@ defmodule MorgyDb.Database.Parser do
 
   defp parse_select(rest) do
     # Check for JOIN
-    if String.contains?(rest, ~r/JOIN/i) do
+    if String.match?(rest, ~r/JOIN/i) do
       parse_select_with_join(rest)
     else
       parse_select_simple(rest)
